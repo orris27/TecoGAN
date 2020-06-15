@@ -74,7 +74,7 @@ elif( runcase == 1 ): # inference a trained model
     # run these test cases one by one:
     for nn in range(len(testpre)):
         cmd1 = ["python3", "main.py",
-            "--cudaID", "0",            # set the cudaID here to use only one GPU
+            #"--cudaID", "0",            # set the cudaID here to use only one GPU
             "--output_dir",  dirstr,    # Set the place to put the results.
             "--summary_dir", os.path.join(dirstr, 'log/'), # Set the place to put the log. 
             "--mode","inference", 
@@ -140,7 +140,7 @@ elif( runcase == 3 ): # Train TecoGAN
     train_dir = folder_check("ex_TecoGAN%s/"%now_str)
     # train TecoGAN, loss = l2 + VGG54 loss + A spatio-temporal Discriminator
     cmd1 = ["python3", "main.py",
-        "--cudaID", "0", # set the cudaID here to use only one GPU
+        #"--cudaID", "0", # set the cudaID here to use only one GPU
         "--output_dir", train_dir, # Set the place to save the models.
         "--summary_dir", os.path.join(train_dir,"log/"), # Set the place to save the log. 
         "--mode","train",
@@ -248,7 +248,7 @@ elif( runcase == 4 ): # Train FRVSR, loss = l2 warp + l2 content
     now_str = datetime.datetime.now().strftime("%m-%d-%H")
     train_dir = folder_check("ex_FRVSR%s/"%now_str)
     cmd1 = ["python3", "main.py",
-        "--cudaID", "0", # set the cudaID here to use only one GPU
+        #"--cudaID", "0", # set the cudaID here to use only one GPU
         "--output_dir", train_dir, # Set the place to save the models.
         "--summary_dir", os.path.join(train_dir,"log/"), # Set the place to save the log. 
         "--mode","train",

@@ -51,7 +51,7 @@ Flags.DEFINE_boolean('pre_trained_model', False, 'If True, the weight of generat
 Flags.DEFINE_string('vgg_ckpt', None, 'path to checkpoint file for the vgg19')
 
 # Machine resources
-Flags.DEFINE_string('cudaID', '0', 'CUDA devices')
+#Flags.DEFINE_string('cudaID', '0', 'CUDA devices')
 Flags.DEFINE_integer('queue_thread', 6, 'The threads of the queue (More threads can speedup the training process.')
 Flags.DEFINE_integer('name_video_queue_capacity', 512, 'The capacity of the filename queue (suggest large to ensure'
                                                   'enough random shuffle.')
@@ -105,7 +105,7 @@ Flags.DEFINE_boolean('D_LAYERLOSS', True, 'Whether use layer loss from D')
 FLAGS = Flags.FLAGS
 
 # Set CUDA devices correctly if you use multiple gpu system
-os.environ["CUDA_VISIBLE_DEVICES"]=FLAGS.cudaID 
+#os.environ["CUDA_VISIBLE_DEVICES"]=FLAGS.cudaID 
 # Fix randomness
 my_seed = FLAGS.rand_seed
 rn.seed(my_seed)
@@ -162,7 +162,7 @@ def testWhileTrain(FLAGS, testno = 0):
         "--mode","inference",
         "--num_resblock", "%d"%FLAGS.num_resblock,
         "--checkpoint", os.path.join(FLAGS.output_dir, 'model-%d'%testno),
-        "--cudaID", FLAGS.cudaID]
+        #"--cudaID", FLAGS.cudaID]
     # a folder for short test 
     cmd1 += ["--input_dir_LR", "./LR/calendar/", # update the testing sequence
              "--output_pre", "", # saving in train folder directly
