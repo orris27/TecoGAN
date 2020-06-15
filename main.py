@@ -161,7 +161,7 @@ def testWhileTrain(FLAGS, testno = 0):
         "--summary_dir", desstr,
         "--mode","inference",
         "--num_resblock", "%d"%FLAGS.num_resblock,
-        "--checkpoint", os.path.join(FLAGS.output_dir, 'model-%d'%testno),
+        "--checkpoint", os.path.join(FLAGS.output_dir, 'model-%d'%testno)]
         #"--cudaID", FLAGS.cudaID]
     # a folder for short test 
     cmd1 += ["--input_dir_LR", "./LR/calendar/", # update the testing sequence
